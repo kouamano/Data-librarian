@@ -7,7 +7,13 @@
 \begin{itemize}
 \item 状態(有限)を記憶するメモリ
 \item 記号(有限)列(無限)を記録するテープ
-\item メモリとテープを読み書きするヘッド
+\item メモリとテープを読み書きするデバイス
+\end{itemize}
+なお、チューリングマシンの論理的表現の要素は以下となる。
+\begin{itemize}
+\item $M$: 状態を表す有限集合
+\item $T$: 記号集合
+\item $\delta$: $\delta(m,t) = (m', t', h)$: 遷移関数、ただし、$m,m' \ni M$、$t,t' \ni T$、$h$: マシンの移動方向
 \end{itemize}
 
 \subsection{セルオートマトン}
