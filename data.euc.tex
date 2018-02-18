@@ -1,9 +1,9 @@
 データとは、計算機が扱うことのできる情報の形式と考えることができる。
 この意味では、データを理解するためには計算機の構造をある程度理解する必要があることを述べておく。
 このことは「データ処理とは」の章でもう少し詳しく解説するが、本書では端的には「電子計算機が扱うことのできるバイト列またはビット列」を指す。
-\begin{screen}
+\begin{breakbox}
 $\Rightarrow$ 電子計算機以外にどのようなタイプの計算機があるか調べてみよう。
-\end{screen}
+\end{breakbox}
 
 \subsection{データ型}
 一般的にデータ型とはデジタル電子計算機が扱うデータフォーマットのことと考えてよい。データ型には幾つかの抽象化レベルがあるが、最下層としては単なるビット列をどのように解釈するかである。すなわち、例えば以下のようなものである。
@@ -12,9 +12,9 @@ $\Rightarrow$ 電子計算機以外にどのようなタイプの計算機があるか調べてみよう。
 \item 小数(浮動小数点数)型
 \item 文字型
 \end{itemize}
-\begin{screen}
+\begin{breakbox}
 $\Rightarrow$ 上記以外にどのようなデータ型があるか調べてみよう。
-\end{screen}
+\end{breakbox}
 
 \subsection{文字と文字列}
 ここで、文字と文字列、数字について述べておこう。
@@ -23,12 +23,15 @@ UTF8とは、ユニコードをエンコードする一つの方法である。数字とは、数を表すための文
 数値とは前述したように、整数や小数という概念そのもの、あるいは計算機上で数値として取り扱うビット列のことである。
 文字列とは文字コードまたは文字エンコードの並らびである。
 一方、文字列(数字列)によって数値を表現することがあり、近年ではこの方式が一般的である。
-\begin{screen}
+\begin{breakbox}
 $\Rightarrow$ このことをCの\shortstack[l]{sscanf()}などで確認しよう。\\
+
 $\Rightarrow$ リトルエンディアンとは何か調べてみよう。
-\end{screen}
+\end{breakbox}
 
 \subsection{集合、リスト、ツリー、グラフ}
+\input{zu-cell.tex}
+\input{zu-graph.tex}
 一般的にデータを取り扱う際にはデータ単体(datum)の単位では扱わず、データ集合として扱う。
 ここで言う集合は一般的な集合ではなく、一種の配列、つまり、要素の並び順や重複に意味があるものである。
 リストとは、要素を並べただけのものから、より高位の階層構造などを表すために用いられる表現である。
@@ -38,19 +41,22 @@ $\Rightarrow$ リトルエンディアンとは何か調べてみよう。
 この場合も内部実装はCons Cellで現すことができる。
 グラフはより高位の構造であり、抽象レベルの表現、内部実装ともに複雑になるが、これらを表現する幾つかの方法がある。
 その一つは隣接行列を利用することである[Figure:\ref{zu-graph}]。
-\input{zu-cell.tex}
-\input{zu-graph.tex}
 
 グラフよりもさらに高次な構造も当然ある。
 グラフの均質化やラベル付与は、より複雑なネットワーク構造を表す\cite{FujiwaraYuzuru}。
 いずれの構造を表わすにおいても、前述のリスト構造がデータ構造における基本と考えてよい。
-\begin{screen}
+
+\begin{breakbox}
 $\Rightarrow$ 配列とポインタ参照 \\
 プログラミング言語ではよくポインタが使用されるが、Javaのような近代的な言語はその効果が隠蔽されており、解り難い。
 C言語においてすらポインタ参照と配列参照はカッコ[]で行うことができ、違いがない。
 しかし、次のようなコードでその違いを確認できる。
+\begin{center}
+==========
+\end{center}
+\scriptsize
 \begin{verbatim}
-(* データサイズをprintする *)
+/* データサイズをprintする */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -62,44 +68,22 @@ int main(){
         return(0);
 }
 \end{verbatim}
+\normalsize
+\begin{center}
+==========
+\end{center}
 出力は以下となる。
 \begin{verbatim}
 int             	:4:	byte
 int 2D:2x2      	:16:	byte
 pointer int*    	:8:	byte
 \end{verbatim}
-なぜか、は読者自身に理解していただきたい。
-\end{screen}
+\end{breakbox}
 
 
 \begin{breakbox}
 $\Rightarrow$ 
 長い文のテスト
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
