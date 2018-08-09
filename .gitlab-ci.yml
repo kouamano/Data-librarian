@@ -5,12 +5,16 @@ stages:
 test_job:
   type: test
   script:
-    - ls Makefile
+    - ls top.tex
 
 deploy_job:
   type: deploy
   script:
-    - make
+    - platex -kanji=euc top.tex
+    - bibtex top
+    - platex -kanji=euc top.tex
+    - platex -kanji=euc top.tex
+    - dvipdfmx -p a5 top.dvi
   artifacts:
     paths:
       - top.pdf
