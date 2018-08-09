@@ -5,15 +5,12 @@ stages:
 test_job:
   type: test
   script:
-    - echo "hello github ci"
-    - ls
+    - ls Makefile
 
 deploy_job:
   type: deploy
   script:
-    - echo "hello github ci" > helo.txt
-    - ls > ls.txt
+    - make
   artifacts:
     paths:
-      - helo.txt
-      - ls.txt
+      - top.pdf
