@@ -8,4 +8,4 @@ top.dvi: *.tex ref.euc.bib
 	platex -kanji=euc top.tex
 
 clean:
-	rm top.dvi top.bbl top.pdf
+	rm top.dvi top.bbl top.pdf top.toc top.aux top.log
